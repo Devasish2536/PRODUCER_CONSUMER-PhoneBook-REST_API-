@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-dark text-center bg-info">
+                <h2>Add Contact</h2>
+            </div>
+            <div class="card-body bg-light">
+                <form class="form" th:action="@{/add}" th:object="${contact}" method="post">
+                    <div class="row">
+                        <div class="col-2 "><label class="form-control">Name</label></div>
+                        <div class="col-5 "><input type="text" th:field="*{name}" class="form-control" required></div>
+                        <div class="col-5"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2"><label class="form-control">Number</label></div>
+                        <div class="col-5"><input type="number" th:field="*{number}" class="form-control" required></div>
+                        <div class="col-5"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2"><label class="form-control">Email</label></div>
+                        <div class="col-5"><input type="text" th:field="*{email}" class="form-control" required></div>
+                        <div class="col-5"></div>
+                    </div>
+                    <br>
+                    <input type="hidden" th:field="*{id}">
+                    <input type="submit" value="ADD" class="btn btn-success">
+                    <a th:href="@{/getAll}" class="btn btn-warning">GetAll</a>
+                </form>
+            </div>
+            <div class="card-footer text-info" th:text="${msg}"></div>
+        </div>
+    </div>
+    
+</body>
+</html>
